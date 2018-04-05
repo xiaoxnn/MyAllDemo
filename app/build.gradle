@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.example.gm.myalldemo"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        pickFirst 'lib/armeabi/librealm-jni.so'
+        pickFirst 'lib/x86/librealm-jni.so'
+        pickFirst 'lib/x86_64/librealm-jni.so'
+        pickFirst 'lib/arm64-v8a/librealm-jni.so'
+        pickFirst 'lib/armeabi-v7a/librealm-jni.so'
+        pickFirst 'lib/mips/librealm-jni.so'
+        pickFirst 'lib/armeabi-v7a/libijkplayer.so'
+        pickFirst 'lib/x86/libijkplayer.so'
+        pickFirst 'lib/x86/libijksdl.so'
+        pickFirst 'lib/armeabi/libijkplayer.so'
+        pickFirst 'lib/arm64-v8a/libijkffmpeg.so'
+        pickFirst 'lib/x86_64/libijksdl.so'
+        pickFirst 'lib/armeabi-v7a/libijkffmpeg.so'
+        pickFirst 'lib/x86_64/libijkffmpeg.so'
+        pickFirst 'lib/armeabi/libijksdl.so'
+        pickFirst 'lib/x86_64/libijkplayer.so'
+        pickFirst 'lib/arm64-v8a/libijksdl.so'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:recyclerview-v7:26.3.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    compile files('libs/pinyin4j-2.5.0.jar')
+    compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.9'
+    compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+
+    compile 'com.shuyu:gsyVideoPlayer-java:4.1.0'
+    compile 'com.shuyu:gsyVideoPlayer-ex_so:4.1.0'
+
+    compile 'me.wcy:lrcview:2.0.1'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.google.code.gson:gson:2.8.2'
+}
